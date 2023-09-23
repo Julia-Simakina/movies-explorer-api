@@ -59,7 +59,6 @@ const movieSchema = new mongoose.Schema({
   },
   movieId: {
     type: Number,
-    ref: 'user',
     required: [true, 'Поле должно быть заполнено'],
   },
   nameRU: {
