@@ -1,6 +1,12 @@
 const { celebrate, Joi } = require('celebrate');
 const { urlRegex } = require('../../constants/urlRegex');
 
+const movieIdValidation = celebrate({
+  params: Joi.object().keys({
+    movieId: Joi.string().length(24).hex().required(),
+  }),
+});
+
 const addMovieValidation = celebrate({
   body: Joi.object().keys({
     country: Joi.string().required(),
@@ -18,5 +24,6 @@ const addMovieValidation = celebrate({
 });
 
 module.exports = {
+  movieIdValidation,
   addMovieValidation,
 };

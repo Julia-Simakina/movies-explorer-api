@@ -56,7 +56,7 @@ module.exports.deleteMovie = (req, res, next) => {
       if (!card.owner.equals(req.user._id)) {
         throw new ForbiddenError('Вы не можете удалить из сохранения этот фильм.');
       }
-      Movie.findByIdAndRemove(req.params.movieId)
+      return Movie.findByIdAndRemove(req.params.movieId)
         .then((cardDelete) => res.status(200).send(cardDelete));
     })
     .catch((err) => {
